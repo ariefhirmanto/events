@@ -2,23 +2,23 @@
   "name": "events",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index",
   "dependencies": {
-    "@types/body-parser": "^1.17.0",
-    "@types/express": "^4.17.0",
+    "pg": "^7.8.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "typeorm ": "^0.2.18"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.17.0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "prebuild": "tsconfig.json --fix",
-    "build": "tsc",
-    "prestart": "npm run build",
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development ts-node-dev --transpileOnly src/index.ts",
+    "start": "NODE_ENV=production ts-node src/index.ts",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
   "keywords": [],
   "author": "",

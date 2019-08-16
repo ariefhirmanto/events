@@ -34,7 +34,7 @@ export class EventController {
         response.send(events);
     }
 
-    eventSaveAction(request: Request, response: Response) {
+    async eventSaveAction(request: Request, response: Response) {
 
         // get a post repository to perform operations with post
         const eventRepository = getManager().getRepository(Event);
