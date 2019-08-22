@@ -28,8 +28,17 @@ export class EventController {
     }
 
     async eventSaveAction(request: Request, response: Response) {
-        const newEvent = this.eventRepository.create(request.body);
-        await this.eventRepository.save(newEvent);
+
+        // get a post repository to perform operations with post
+        const eventRepository = getManager().getRepository(Event);
+    
+        // create a real post object from post json object sent over http
+        const newEvent = eventRepository.create(request.body);
+    
+        // save received post
+        await eventRepository.save(newEvent);
+    
+        // return saved post back
         response.send(newEvent);
     }
 

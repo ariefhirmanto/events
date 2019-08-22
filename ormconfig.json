@@ -1,13 +1,13 @@
 {
-    "type": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "test",
-    "password": "test",
-    "database": "test",
+    "type": "postgres",
+    "host": "postgres",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "events",
     "synchronize": true,
     "entities": [
-      "src/entity/*.js"
+      "src/entity/*.ts"
     ],
     "subscribers": [
       "src/subscriber/*.js"
